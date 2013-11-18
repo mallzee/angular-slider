@@ -114,7 +114,7 @@
         refHigh = 'ngModelHigh';
         bindHtml(selBub, "'Range: ' + translate({value: diff})");
         bindHtml(lowBub, "translate({value: " + refLow + "})");
-        bindHtml(highBub, "translate({value: " + refHigh + "})");
+        bindHtml(highBub, "translate({value: " + refHigh + "}) + '+'");
         bindHtml(cmbBub, "translate({value: " + refLow + "}) + ' - ' + translate({value: " + refHigh + "})");
         if (!range) {
           _ref1 = [selBar, maxPtr, selBub, highBub, cmbBub];
@@ -249,7 +249,7 @@
                 };
                 onMove = function(event) {
                   var eventX, newOffset, newPercent, newValue;
-                  eventX = event.clientX || event.touches[0].clientX;
+                  eventX = event.clientX || event.originalEvent.touches[0].clientX;
                   newOffset = eventX - element[0].getBoundingClientRect().left - pointerHalfWidth;
                   newOffset = Math.max(Math.min(newOffset, maxOffset), minOffset);
                   newPercent = percentOffset(newOffset);
